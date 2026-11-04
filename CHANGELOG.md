@@ -4,6 +4,16 @@ All notable changes to rules_cloudformation. The format is loosely
 [Keep a Changelog](https://keepachangelog.com/) — version headers
 mirror the published bazel-registry entries.
 
+## 0.10.1 — reproducible AWS inputs and false-valued schemas
+
+- Pin the CloudFormation Resource Specification to immutable version 260.0.0
+  and vendor the S3 bucket endpoint schema so upstream changes cannot break
+  downloads with checksum mismatches.
+- Update rules_jsonschema to 0.4.0 so false-valued schema/template values render
+  correctly, and refresh the generated resource definitions.
+- Fix the reusable CI workflow invocation so validation starts on every change.
+
+
 ## 0.10.0 — `cfn_join`: Fn::Join, and list-valued GetAtt in an Output
 
 - New `cfn_join(delimiter, values)` Starlark helper in
